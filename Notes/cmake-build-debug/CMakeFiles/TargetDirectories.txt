@@ -1,0 +1,4 @@
+/Users/yzhbradoodrrpurp/Desktop/CPP/Notes/cmake-build-debug/CMakeFiles/IO.dir
+/Users/yzhbradoodrrpurp/Desktop/CPP/Notes/cmake-build-debug/CMakeFiles/namespace.dir
+/Users/yzhbradoodrrpurp/Desktop/CPP/Notes/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/yzhbradoodrrpurp/Desktop/CPP/Notes/cmake-build-debug/CMakeFiles/rebuild_cache.dir
