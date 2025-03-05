@@ -16,7 +16,7 @@ int main(void) {
     int age;
     std::cin >> age; // 遇到换行符或者空格会停止输入
 
-    // 可以连续读取多个值
+    // 可以连续读取多个值，同样遇到换行符和空格会停止输入
     double height, weight;
     std::cin >> height >> weight;
 
