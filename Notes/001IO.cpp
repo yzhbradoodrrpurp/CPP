@@ -1,6 +1,9 @@
 // 包含标准输入输出库的头文件
 #include <iostream>
 
+// 包含使用 `string` 的头文件
+#include <string>
+
 int main(void) {
     // `std` 是C++中标准库的命名空间 (namespace) ，命名空间用于组织代码，避免命名冲突
     // `cout` 将数据输出到标准输出 (通常是显示器)
@@ -25,6 +28,10 @@ int main(void) {
 
     // C++中的强制类型转换可以使用 `type()` 的形式，和Python中的相似
     std::cout << "Hello " << name << ", you are " << double(age) << " years old." << std::endl;
+
+    std::string sentence;
+    // 使用 `std::getline` 函数读取整行字符 (包括空格) ，遇到回车键结束
+    std::getline(std::cin, sentence);
 
     return 0;
 }
