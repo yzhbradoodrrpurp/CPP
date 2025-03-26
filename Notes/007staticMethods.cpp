@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <string>
-#include <utility>
 #include <vector>
 
 using namespace std;
@@ -17,7 +16,7 @@ private:
 
 public:
     Employee(string name, int salary) {
-        this->name = std::move(name);
+        this->name = name;
         this->salary = salary;
     }
 
