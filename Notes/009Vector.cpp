@@ -37,7 +37,7 @@ int main() {
         cout << i << " ";
     cout << endl;
 
-    // NOTE: erase 接收某一位置的迭代器，删除那个位置的元素
+    // NOTE: `erase` 接收某一位置的迭代器，删除那个位置的元素
     len.erase(len.end() - 1);
 
     for (auto i : len)
