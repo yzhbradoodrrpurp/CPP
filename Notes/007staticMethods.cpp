@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 
 using namespace std;
@@ -16,7 +17,7 @@ private:
 
 public:
     Employee(string name, int salary) {
-        this->name = name;
+        this->name = std::move(name);
         this->salary = salary;
     }
 
@@ -41,7 +42,7 @@ public:
 };
 
 
-int main(void) {
+int main() {
     // NOTE: vector<...> 表示定义一个 `...` 类型的动态数组
     vector<Employee*> employees = {
         new Employee("Alice", 30000),
