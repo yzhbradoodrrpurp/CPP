@@ -13,14 +13,21 @@ public:
 
 private:
     string name;
-    int age;
     Sex sex;
+    int age;
 
 public:
-    People(string name, int age, Sex sex): name(name), age(age), sex(sex){}
-
+    // NOTE: `explicit` 的作用是防止隐式调用构造函数
+    explicit People(string name, Sex sex, int age): name(name), sex(sex), age(age){}
 
 };
+
+/*
+ * NOTE: 有 `public`, `protected`, `private` 三种继承方式
+ * `public`: 从母类继承的属性和方法 `public` 和 `protected` 不改变，`private` 不能访问
+ * `protected`: 从母类继承的属性和方法 `public` 和 `protected` 全部变成 `protected`，`private` 不能访问
+ * `private`: 从母类继承的属性和方法 `public` 和 `protected` 全部变成 `private`，`private` 不能访问
+ */
 
 class Student: public People {
 
@@ -28,6 +35,6 @@ private:
     string id;
 
 public:
-    Student(string name, int age, Sex sex, string id): People(name, age, sex), id(id) {}
+    explicit Student(string name, Sex sex, int age, string id): People(name, sex, age), id(id) {}
 
 };
