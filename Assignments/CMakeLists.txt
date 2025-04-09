@@ -5,3 +5,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(OOP OOP.cpp)
 add_executable(inherit inherit.cpp)
+add_executable(virtual virtual.cpp)
