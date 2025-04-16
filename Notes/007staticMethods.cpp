@@ -32,7 +32,7 @@ public:
         int sum = 0;
 
         // NOTE: `auto` 是一个自动判断变量类型的机制
-        // NOTE: 这种写法是 range-based for loop，能够直接遍历容器中的元素
+        // NOTE: 这种写法是 range-based `for` loop，能够直接遍历容器中的元素
         for (auto* employee:employees)
             sum += employee->salary;
 
