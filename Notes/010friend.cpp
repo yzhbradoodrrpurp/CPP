@@ -11,6 +11,9 @@ using namespace std;
 enum Chromosome {XY, XX};
 enum Genitals {Penis, Vagina};
 
+class Man;
+class Woman;
+
 
 class Man {
 
@@ -28,6 +31,9 @@ public:
         chromosome = XY;
         genitals = Penis;
     }
+
+    // NOTE: 类内声明友元函数，能够在函数内部访问 `private` 属性、方法
+    friend bool canMarry(Man a, Woman b);
 
 };
 
@@ -49,28 +55,33 @@ public:
         genitals = Vagina;
     }
 
-    static bool canMarry(Man a, Woman b) {
-        // 由于两者是友元，所以在 Woman 类中可以访问 Man 的受保护的属性
-        if (a.age < 24)
-            return false;
-
-        if (b.age < 22)
-            return false;
-
-        if (a.age < b.age)
-            return false;
-
-        return true;
-    }
+    // NOTE: 类内声明友元函数，能够在函数内部访问 `private` 属性、方法
+    friend bool canMarry(Man a, Woman b);
 
 };
+
+
+bool canMarry(Man a, Woman b){
+
+    // 由于两者是友元，所以在 Woman 类中可以访问 Man 的受保护的属性
+    if (a.age < 24)
+        return false;
+
+    if (b.age < 22)
+        return false;
+
+    if (a.age < b.age)
+        return false;
+
+    return true;
+}
 
 
 int main() {
     Man chris = Man("Chris Brown", 39);
     Woman riri = Woman("Rihanna", 39);
 
-    bool can_marry = Woman::canMarry(chris, riri);
+    bool can_marry = canMarry(chris, riri);
 
     cout << can_marry << endl;
 
