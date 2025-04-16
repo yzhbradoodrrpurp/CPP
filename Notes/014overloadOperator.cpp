@@ -2,8 +2,6 @@
 // Created by 易治行 on 2025/4/16.
 //
 
-#include <string>
-#include <string.h>
 
 class Complex {
 
@@ -48,5 +46,29 @@ public:
     // NOTE: 在类内直接重载运算符函数
     Point operator-(const Point &other) {
         return Point(this->x - other.x, this->y - other.y);
+    }
+
+    // 前置 ++a
+    void operator++() {
+        this->x += 1;
+        this->y += 1;
+    }
+
+    // 前置 --a
+    void operator--() {
+        this->x -= 1;
+        this->y -= 1;
+    }
+
+    // 后置 a++
+    void operator++(int) {
+        this->x += 1;
+        this->y += 1;
+    }
+
+    // 后置 a--
+    void operator--(int) {
+        this->x -= 1;
+        this->y -= 1;
     }
 };
