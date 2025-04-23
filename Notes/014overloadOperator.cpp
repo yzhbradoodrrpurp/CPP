@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <string>
 
 
 class Complex {
@@ -93,5 +94,14 @@ public:
         throw std::out_of_range("Index out of range.");
     }
 
+    // NOTE: 重载显式类型转换
+    operator std::string() {
+        return "<" + std::to_string(x) + ", " + std::to_string(y) + ">";
+    }
+
+    // NOTE: 重载显式类型转换
+    operator int() {
+        return int(x * y);
+    }
 
 };
