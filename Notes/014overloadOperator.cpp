@@ -2,6 +2,8 @@
 // Created by 易治行 on 2025/4/16.
 //
 
+#include <iostream>
+
 
 class Complex {
 
@@ -15,7 +17,7 @@ public:
 
     virtual ~Complex() {}
 
-    friend Complex operator+(const Complex &self, const Complex &other);
+    friend Complex operator+(const Complex &, const Complex &);
 };
 
 // NOTE: 使用友元函数的方式重载运算符函数
@@ -71,4 +73,25 @@ public:
         this->x -= 1;
         this->y -= 1;
     }
+
+    // NOTE: 重载输出操作流
+    // `std::cout` 就是一个 `ostream` 类的实例
+    // 必须加上引用
+    std::ostream& operator<<(std::ostream cout, Point p) {
+        cout << "<" << p.x << ", " << p.y << ">";
+        return cout;
+    }
+
+    // NOTE: 重载下标
+    int& operator[](int idx) {
+        if (idx == 0)
+            return x;
+
+        if (idx == 1)
+            return y;
+
+        throw std::out_of_range("Index out of range.");
+    }
+
+
 };
