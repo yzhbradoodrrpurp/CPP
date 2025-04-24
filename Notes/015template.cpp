@@ -3,22 +3,34 @@
 //
 
 // NOTE: 也可写作 `template <class type>`
-template <typename type1>
-template <typename type2>
+// NOTE: 不能连续写两个 `template`
+template <typename function_type>
 
 // NOTE: 函数模版，作用于函数中
-type1 GetSum(type1 arr[]) {
-     auto sum = 0;
+function_type GetSum(function_type arr[]) {
+     function_type sum = 0;
 
-    for (auto i: arr) {
+    for (function_type i: arr) {
         sum += i;
     }
 
     return sum;
 }
 
-template <typename type2>
+
+template <typename class_type>
+
 // NOTE: 类模版，做用于类中的属性
-class Array{
+class Pair{
+
+private:
+    class_type x;
+    class_type y;
+
+public:
+    // NOTE:  调用的时候: `Pair<int> p = Pair(10, 5)`
+    Pair(class_type x, class_type y): x(x), y(y) {}
+
+    ~Pair(){}
 
 };

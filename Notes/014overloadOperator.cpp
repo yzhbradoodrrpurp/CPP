@@ -78,9 +78,18 @@ public:
     // NOTE: 重载输出操作流
     // `std::cout` 就是一个 `ostream` 类的实例
     // 必须加上引用
-    std::ostream& operator<<(std::ostream cout, Point p) {
+    std::ostream& operator<<(std::ostream& cout, Point& p) {
         cout << "<" << p.x << ", " << p.y << ">";
         return cout;
+    }
+
+    // NOTE: 重载输入操作流
+    std::istream& operator>>(std::istream& cin, Point& p) {
+
+        std::cout <<  "Enter the x, y cooridinate: " << std::endl;
+        cin >> p.x >> p.y;
+
+        return cin;
     }
 
     // NOTE: 重载下标
