@@ -24,8 +24,8 @@ int main(void) {
     auto p3 = std::make_unique<int>(10);
     std::cout << *p3 << std::endl;
 
-    // shared_ptr
-    
+    // shared_ptr:
+
     std::shared_ptr<int> q1(new int(10));
     std::shared_ptr<int> q2 = q1;
 

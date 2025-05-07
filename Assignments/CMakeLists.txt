@@ -8,5 +8,5 @@ add_executable(inherit inherit.cpp)
 add_executable(virtual virtual.cpp)
 add_executable(overloadOperator overloadOperator.cpp)
 add_executable(deepcopy deepcopy.cpp)
-
+add_executable(list List.cpp)
 add_executable(game Game/game.cpp Game/Character.cpp Game/Equipment.cpp)
