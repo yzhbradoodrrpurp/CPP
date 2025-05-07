@@ -3,29 +3,30 @@
 //
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 template <class T>
 
-class List {
+class Library {
 
 private:
     T value;
-    List* previous;
-    List* next;
+    Library* previous;
+    Library* next;
 
 public:
-    List(T value): value(value), previous(nullptr), next(nullptr) {}
+    Library(T value): value(value), previous(nullptr), next(nullptr) {}
 
-    ~List() {
-        List* last = this;
+    ~Library() {
+        Library* last = this;
 
         while (last != nullptr)
             last = last->next;
 
         while (last != nullptr) {
-            List* next_last = last->previous;
+            Library* next_last = last->previous;
             delete last;
             last = next_last;
         }
@@ -33,18 +34,18 @@ public:
 
     void append(T value) {
 
-        List* p = this;
+        Library* p = this;
 
         while (p->next != nullptr)
             p = p->next;
 
-        p->next = new List(value);
+        p->next = new Library(value);
         p->next->previous = this;
     }
 
     int length() {
         int len = 1;
-        List* p = this;
+        Library* p = this;
 
         while (p->next != nullptr) {
             p = p->next;
@@ -63,7 +64,7 @@ public:
         }
 
         int current_idx = 0;
-        List* p = this;
+        Library* p = this;
 
         while (current_idx < idx) {
             p = p->next;
@@ -74,8 +75,8 @@ public:
         p->next->previous = p->previous;
     }
 
-    List* search(T value) {
-        List* p = this;
+    Library* search(T value) {
+        Library* p = this;
 
         while (p != nullptr) {
             if (p->value == value)
@@ -95,32 +96,43 @@ public:
             return;
         }
 
+        if (idx == 0) {
+            cout << "`idx` == 0 is not allowed." << endl;
+            return;
+        }
+
         int current_idx = 0;
-        List*p = this;
+        Library*p = this;
 
         while (current_idx < idx) {
             current_idx += 1;
             p = p->next;
         }
 
-        List* new_node = new List(value);
+        auto new_node = new Library(value);
 
-        if (idx != 0) {
-            p->previous->next = new_node;
-            new_node->previous = p->previous;
-            p->previous = new_node;
-            new_node->next = p;
-        }
-        else {
-            cout << "`idx` == 0 is Not allowed." << endl;
-        }
+        p->previous->next = new_node;
+        new_node->previous = p->previous;
+        p->previous = new_node;
+        new_node->next = p;
     }
 
-    friend ostream& operator<<(ostream&, const List<int>*);
-
+    friend ostream& operator<<(ostream&, const Library<int>*);
+    friend ostream& operator<<(ostream& , const Library<string>*);
 };
 
-ostream& operator<<(ostream& out, const List<int>* l) {
+ostream& operator<<(ostream& out, const Library<int>* l) {
+    auto p = l;
+
+    while (p != nullptr) {
+        out << p->value << "\t";
+        p = p->next;
+    }
+
+    return out;
+}
+
+ostream& operator<<(ostream& out, const Library<string>* l) {
     auto p = l;
 
     while (p != nullptr) {
@@ -133,24 +145,21 @@ ostream& operator<<(ostream& out, const List<int>* l) {
 
 
 int main() {
+    Library<string>* lib = new Library<string>("憨豆先生");
 
-    auto p = new List<int>(10);
+    lib->append("斗罗大陆");
+    lib->append("红楼梦");
+    lib->append("斗破苍穹");
+    lib->append("淘气包马小跳");
+    lib->append("暴走漫画");
 
-    p->append(15);
-    p->append(30);
-    p->append(50);
-    cout << p << endl;
+    cout << lib << endl;
 
-    auto x = p->search(30);
-    cout << x << endl;
+    lib->insert("校花的贴身保镖", 2);
 
-    p->remove(1);
-    cout << p << endl;
+    cout << lib << endl;
 
-    p->insert(60, 1);
-    cout << p << endl;
-
-    delete p;
+    delete lib;
 
     return 0;
 }
