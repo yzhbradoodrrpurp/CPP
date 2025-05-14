@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -43,6 +44,12 @@ int main() {
     for (auto i : len)
         cout << i << " ";
     cout << endl;
+
+    // NOTE; 使用 `clear` 方法清空其中所有元素
+    len.clear();
+
+    // NOTE: 用 `empty` 方法判断 `vector` 中是否为空
+    assert(len.empty() == true);
 
     return 0;
 }
