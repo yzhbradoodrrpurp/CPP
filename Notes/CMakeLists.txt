@@ -3,7 +3,7 @@ project(Notes)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(IO 001IO.cpp)
+add_executable(IO 001basicIO.cpp)
 add_executable(localandglobal 002localandglocal.cpp)
 add_executable(override 003override.cpp)
 add_executable(quote 004quote.cpp)
@@ -20,3 +20,4 @@ add_executable(overload 015template.cpp)
 add_executable(SMARTptr 016SMARTptr.cpp)
 add_executable(list 018list.cpp)
 add_executable(function 019function.cpp)
+add_executable(fileIO 020fileIO.cpp)
