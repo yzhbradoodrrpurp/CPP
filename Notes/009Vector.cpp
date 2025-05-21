@@ -29,7 +29,7 @@ int main() {
     cout << endl;
 
     // NOTE: `begin` 是指向 vector 中第一个元素的迭代器
-    // NOTE: `end` 是指向 vector 中最后一个元素的迭代器
+    // NOTE: `end` 是指向 vector 中最后一个元素的下一位的迭代器
 
     // NOTE: `insert` 接收指向某个位置的迭代器和一个元素，向那个位置插入该元素
     len.insert(len.begin() + 3, 100);
