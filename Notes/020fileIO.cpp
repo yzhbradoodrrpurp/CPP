@@ -35,8 +35,5 @@ int main() {
     else
         std::cout << "Error opening file" << std::endl;
 
-
-
-
     return 0;
 }
