@@ -4,6 +4,11 @@
 
 #include <iostream>
 
+/*
+ * 抽象类是具有纯虚函数的类
+ * 抽象类不能被实例化，即不能用来创建对象
+ */
+
 class Graphic {
 
 public:
