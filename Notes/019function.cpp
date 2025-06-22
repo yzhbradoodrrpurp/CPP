@@ -39,12 +39,12 @@ int main() {
     std::cout << accumulated_value << std::endl;
 
     // NOTE: `std::find` 用于在 container 中寻找某个值
-    auto one = std::find(l.begin(), l.end(), 10);
+    auto one = std::find(l.begin(), l.end(), 5);
 
     if (one == l.end())
         std::cout << "Not found" << std::endl;
     else
-        std::cout << "Found" << std::endl;
+        std::cout << *one << std::endl;
 
     return 0;
 }

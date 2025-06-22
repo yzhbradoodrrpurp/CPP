@@ -12,9 +12,8 @@ int main() {
 
     if (ifile.is_open()) {
         std::string line;
-        while (std::getline(ifile, line)) {
+        while (std::getline(ifile, line))
             std::cout << line << std::endl;
-        }
         // NOTE: 关闭文件
         ifile.close();
     }

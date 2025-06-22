@@ -15,7 +15,7 @@ int main(void) {
     cin >> len;
 
     cout << "Enter the elements of the list: ";
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < len; i++) {
         int element;
         cin >> element;
         l.push_back(element);
@@ -29,7 +29,7 @@ int main(void) {
 
     // NOTE: `list` 不能像 `vector` 那样可以直接 `l.erase(l.begin() + idx)` 来删除第 `idx` 的元素
     auto it = l.begin();
-    advance(it, deleted_idx);
+    std::advance(it, deleted_idx);
     l.erase(it);
 
     return 0;

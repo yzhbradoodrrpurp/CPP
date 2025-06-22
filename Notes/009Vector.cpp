@@ -21,7 +21,7 @@ int main() {
         cout << i << " ";
     cout << endl;
 
-    // NOTE: 使用 `pop_back` 来删除最后一个元素，相当于 默认的 `pop`
+    // NOTE: 使用 `pop_back` 来删除最后一个元素，相当于 Python 中默认的 `pop`
     len.pop_back();
 
     for (auto i : len)
