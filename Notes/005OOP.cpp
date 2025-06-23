@@ -34,11 +34,13 @@ public:
         this->maxSpeed = maxSpeed;
     }
 
+    // NOTE: `static` 表明该方法属于类，而不是单个实例对象
     static void startEngine() {
         cout << "Vroooom" << endl;
     }
 
-    void getInfo() {
+    // NOTE: 常函数的写法，区别于 `const void getInfo();`
+    void getInfo() const {
         cout << "Owner: " << this->owner << endl;
         cout << "Brand: " << this->brand << endl;
         cout << "Price: " << this->price << endl;
